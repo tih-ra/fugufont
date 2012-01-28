@@ -1,0 +1,31 @@
+@import 'nib'
+@import 'nib/gradients'
+@import 'nib/buttons'
+@import 'fonts'
+bg_banner = #9c0063
+
+tshadow(textcolor, shadowcolor)
+  color textcolor
+  text-shadow 1px 1px 0 rgba(shadowcolor, 0.9)
+
+body
+  font 16px 'ColaborateThinRegular'
+
+label
+input
+select
+textarea
+  font 14px 'ColaborateThinRegular'
+
+.banner
+  height 290px
+  background bg_banner
+
+button
+  minimal-button(#DDD, 70px)
+  width 200px
+
+h1
+  font 36px 'SansitaOneRegular'
+  tshadow(#979797, #323232)
+  

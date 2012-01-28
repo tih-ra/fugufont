@@ -1,0 +1,10 @@
+.page-header
+  h1 New font
+
+- form_for(font, {action: path_to.admin_fonts, method: 'POST', id: "font_form", enctype: 'multipart/form-data'}, function (form) {
+  != partial('admin/fonts/form.jade', {locals: {form: form, font: font}})
+  .actions
+    != form.submit('Create font', {class: 'btn'})
+    span= ' or '
+    != link_to('Cancel', path_to.admin_fonts, {class: 'btn'})
+- });

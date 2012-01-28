@@ -1,0 +1,8 @@
+{ "development":
+  {   "driver":   "mongoose"
+    , "url":      "mongodb://localhost/fugufont"
+  }
+, "test":
+  { "driver":   "memory"
+  }
+}

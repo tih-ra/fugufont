@@ -1,0 +1,12 @@
+.clearfix
+  != form.label("title")
+  .input
+    != form.input("title")
+.clearfix
+  != form.label("description")
+  .input
+    != form.input("description")
+.clearfix
+  != form.label("archive")
+  .input
+    != form.input("archive", {type: 'file'})

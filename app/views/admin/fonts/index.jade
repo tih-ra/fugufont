@@ -1,0 +1,16 @@
+.page-header
+  h1 Index of fonts
+
+- fonts.forEach(function (font) {
+  .row
+    .span-one-third= font.title
+    .span-one-third= font.archive
+    .span-one-third
+      != link_to('Edit', path_to.edit_admin_font(font), {class: 'btn primary'}) + ' '
+      != link_to('Delete', path_to.admin_font(font), {class: 'btn danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'})
+- });
+
+hr
+
+.well
+  != link_to('New font', path_to.new_admin_font, {class: 'btn'})

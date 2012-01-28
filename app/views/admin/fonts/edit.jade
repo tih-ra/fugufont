@@ -1,0 +1,10 @@
+.page-header
+  h1 Edit font
+
+- form_for(font, {action: path_to.admin_font(font), method: 'PUT', id: "font_form", enctype: 'multipart/form-data'}, function (form) {
+  != partial('admin/fonts/form.jade', {locals: {form: form, font: font}})
+  .actions
+    != form.submit('Update font', {class: 'btn primary'})
+    span= ' or '
+    != link_to('Cancel', path_to.admin_font(font), {class: 'btn'})
+- });
