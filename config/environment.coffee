@@ -2,6 +2,22 @@ express = require 'express'
 stylus = require 'stylus'
 nib = require 'nib'
 form = require('connect-form')
+everyauth = require('everyauth')
+
+
+addUser = (source, sourceUser) ->
+  user = undefined
+  if arguments.length is 1
+    user = sourceUser = source
+    user.id = ++nextUserId
+    return usersById[nextUserId] = user
+  else
+    user = sourceUser
+  console.log user
+  user
+
+require('./auth')(everyauth)
+
 
 app.configure ->
     cwd = process.cwd()
@@ -26,9 +42,10 @@ app.configure ->
     app.use express.cookieParser()
     app.use express.session secret: '9c9c69c415f0e8a4d860d6ba97a42847'
     app.use express.methodOverride()
+    app.use everyauth.middleware()
 
-
+    
     app.use app.router
-
+everyauth.helpExpress(app)
 
 
