@@ -5,17 +5,6 @@ form = require('connect-form')
 everyauth = require('everyauth')
 
 
-addUser = (source, sourceUser) ->
-  user = undefined
-  if arguments.length is 1
-    user = sourceUser = source
-    user.id = ++nextUserId
-    return usersById[nextUserId] = user
-  else
-    user = sourceUser
-  console.log user
-  user
-
 require('./auth')(everyauth)
 
 

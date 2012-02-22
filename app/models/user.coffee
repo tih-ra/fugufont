@@ -3,6 +3,9 @@ User.findOrCreate = (source, sourceUser, cb) ->
     when 'twitter'
       User.findOrCreateTwitter sourceUser, (user) ->
         cb(user)
+    when 'google'
+      console.log sourceUser
+      cb(user)
 
 User.findOrCreateTwitter = (sourceUser, cb) ->
   User.all

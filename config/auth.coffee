@@ -19,3 +19,21 @@ module.exports = (everyauth) ->
           
     )
     .redirectPath "/"
+
+    everyauth.google
+      .appId(apis.google.clientId)
+      .appSecret(apis.google.clientSecret)
+      .scope("https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email")
+      .findOrCreateUser((sess, accessToken, extra, googleUser) ->
+        promise = @Promise()
+
+        googleUser.refreshToken = extra.refresh_token
+        googleUser.expiresIn = extra.expires_in
+        
+        User.findOrCreate 'google', googleUser, (user) ->
+          promise.fulfill(user)
+        
+        return promise
+
+    )
+    .redirectPath "/"
